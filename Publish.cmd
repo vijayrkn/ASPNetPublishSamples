@@ -1,0 +1,1 @@
+msbuild ASPNetPublishSamples.sln /p:PublishUrl="bin\Release\PublishOutputSoln\" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false
