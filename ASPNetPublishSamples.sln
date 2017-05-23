@@ -22,6 +22,32 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "publish", "publish", "{663D
 		Publish.cmd = Publish.cmd
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AspNetRazor3WebSite", "AspNetRazor3WebSite\", "{54A86982-ECCC-4D8D-96F6-4E5DA1EAAEC6}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56871"
+		Debug.AspNetCompiler.PhysicalPath = "AspNetRazor3WebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56871\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56871"
+		Release.AspNetCompiler.PhysicalPath = "AspNetRazor3WebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56871\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56871"
+		SlnRelativePath = "AspNetRazor3WebSite\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{12543F29-B456-42B9-BFB2-68EC496682FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuGet", "tools\NuGet\NuGet.csproj", "{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,8 +82,23 @@ Global
 		{87E9F21A-8FB6-4332-9CC1-CDAF3A464ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87E9F21A-8FB6-4332-9CC1-CDAF3A464ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87E9F21A-8FB6-4332-9CC1-CDAF3A464ABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54A86982-ECCC-4D8D-96F6-4E5DA1EAAEC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54A86982-ECCC-4D8D-96F6-4E5DA1EAAEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54A86982-ECCC-4D8D-96F6-4E5DA1EAAEC6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{54A86982-ECCC-4D8D-96F6-4E5DA1EAAEC6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{12543F29-B456-42B9-BFB2-68EC496682FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12543F29-B456-42B9-BFB2-68EC496682FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12543F29-B456-42B9-BFB2-68EC496682FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12543F29-B456-42B9-BFB2-68EC496682FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B} = {663DB82C-408C-442F-8CE9-4BC859716D6F}
 	EndGlobalSection
 EndGlobal
