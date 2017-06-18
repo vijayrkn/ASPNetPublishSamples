@@ -20,7 +20,14 @@ REM Syntax:
 :: /p:AutoParameterizationWebConfigConnectionStrings=false 
 :: /p:SolutionDir="."
 
+:: Only for WebJobs on DotNet Core Project System
+:: /p:IsWebJobProject=true
+:: /p:WebJobName=<WebJobName>
+:: /p:WebJobType==<Continuous|Triggered>
+
 REM Testing the commandline for all Project types.
+
+:: =========== ASP.Net Core ===============
 
 REM ASP.NET Core on Core
 msbuild ASPNetCore\ASPNetCore.csproj /p:PublishUrl="..\PublishOutput\ASPNetCore" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
@@ -29,6 +36,9 @@ if errorlevel 1 GOTO ERROR
 REM ASP.NET Core on NetFx
 msbuild ASPNetCoreFullFramework\ASPNetCoreFullFramework.csproj /p:PublishUrl="..\PublishOutput\ASPNetCoreFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
+
+
+:: =========== ASP.Net Classic ===============
 
 REM Classic MVC5
 msbuild MvcApp\MvcApp.csproj /p:PublishUrl="..\PublishOutput\MvcApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
@@ -46,17 +56,36 @@ REM Classic Web Forms
 msbuild WebFormsApp\WebFormsApp.csproj /p:PublishUrl="..\PublishOutput\WebFormsApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs On Net Fx.
+:: =========== WebSite ===============
+
+REM ASP.NET Razor 3 Web Site.
+msbuild AspNetRazor3WebSite\website.publishproj /p:PublishUrl="..\PublishOutput\AspNetRazor3WebSite" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
+if errorlevel 1 GOTO ERROR
+
+:: =========== WebJobs ===============
+
+REM WebJobs On Net Fx on classic project system.
 msbuild WebJobFullFramework\WebJobFullFramework.csproj /p:PublishUrl="..\PublishOutput\WebJobFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
+
+REM WebJobs On DotNet Core 1.1 Portable
+msbuild WebJobDotNetCorePortable\WebJobDotNetCorePortable.csproj /p:PublishUrl="..\PublishOutput\WebJobDotNetCorePortable" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCorePortable /p:WebJobType=Continuous
+if errorlevel 1 GOTO ERROR
+
+REM WebJobs On DotNet Core 1.1 Standalone
+msbuild WebJobDotNetCoreStandalone\WebJobDotNetCoreStandalone.csproj /p:PublishUrl="..\PublishOutput\WebJobDotNetCoreStandalone" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreStandalone /p:WebJobType=Continuous
+if errorlevel 1 GOTO ERROR
+
+REM WebJobs on Net46 on DotNet Core Project System
+msbuild WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj /p:PublishUrl="..\PublishOutput\WebJobDotNetCoreNetFx" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreNetFx /p:WebJobType=Continuous
+if errorlevel 1 GOTO ERROR
+
+:: =========== Functions ===============
 
 REM Function Apps.
 msbuild FunctionApp\FunctionApp.csproj /p:PublishUrl="..\PublishOutput\FunctionApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
-REM ASP.NET Razor 3 Web Site.
-msbuild AspNetRazor3WebSite\website.publishproj /p:PublishUrl="..\PublishOutput\AspNetRazor3WebSite" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
-if errorlevel 1 GOTO ERROR
 
 REM MSDeploy Package Publish(Used by TeamBuild)
 
@@ -74,14 +103,24 @@ REM Syntax:
 :: /p:DesktopBuildPackageLocation=<destination file with extension> (Only needed for ASP.NET Core projects using cli < 2.0. This is due to a bug which has been fixed in 2.0 cli)
 :: /p:DeployIisAppPath=<Web site name> (Only needed for ASP.NET Core projects using cli < 2.0. This is due to a bug which has been fixed in 2.0 cli)
 
+:: Only for WebJobs on DotNet Core Project System
+:: /p:IsWebJobProject=true
+:: /p:WebJobName=<WebJobName>
+:: /p:WebJobType==<Continuous|Triggered>
+
 set "RootPath=%~dp0"
+
 REM ASP.NET Core on Core
+
+:: =========== ASP.Net Core ===============
 msbuild ASPNetCore\ASPNetCore.csproj /p:PackageLocation="..\PublishOutput\ZipASPNetCore" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:DesktopBuildPackageLocation="%RootPath%PublishOutput\ZipASPNetCore\ASPNetCore.zip"
 if errorlevel 1 GOTO ERROR
 
 REM ASP.NET Core on NetFx
 msbuild ASPNetCoreFullFramework\ASPNetCoreFullFramework.csproj /p:PackageLocation="..\PublishOutput\ZipASPNetCoreFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:DesktopBuildPackageLocation="%RootPath%PublishOutput\ZipASPNetCoreFullFramework\ASPNetCoreFullFramework.zip"
 if errorlevel 1 GOTO ERROR
+
+:: =========== ASP.Net Classic ===============
 
 REM Classic MVC5
 msbuild MvcApp\MvcApp.csproj /p:PackageLocation="..\PublishOutput\ZipMvcApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
@@ -99,16 +138,33 @@ REM Classic Web Forms
 msbuild WebFormsApp\WebFormsApp.csproj /p:PackageLocation="..\PublishOutput\ZipWebFormsApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
+:: =========== WebSite ===============
+
+REM ASP.NET Razor 3 Web Site.
+msbuild AspNetRazor3WebSite\website.publishproj /p:PackageLocation="..\PublishOutput\ZipAspNetRazor3WebSite" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
+if errorlevel 1 GOTO ERROR
+
+:: =========== WebJobs ===============
+
 REM WebJobs On Net Fx.
 msbuild WebJobFullFramework\WebJobFullFramework.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
-REM Function Apps.
-msbuild FunctionApp\FunctionApp.csproj /p:PackageLocation="..\PublishOutput\ZipFunctionApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:DesktopBuildPackageLocation="%RootPath%PublishOutput\ZipFunctionApp\FunctionApp.zip"
+REM WebJobs On DotNet Core 1.1 Portable
+msbuild WebJobDotNetCorePortable\WebJobDotNetCorePortable.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobDotNetCorePortable" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCorePortable /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
-REM ASP.NET Razor 3 Web Site.
-msbuild AspNetRazor3WebSite\website.publishproj /p:PackageLocation="..\PublishOutput\ZipAspNetRazor3WebSite" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
+REM WebJobs On DotNet Core 1.1 Standalone
+msbuild WebJobDotNetCoreStandalone\WebJobDotNetCoreStandalone.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobDotNetCoreStandalone" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreStandalone /p:WebJobType=Continuous
+if errorlevel 1 GOTO ERROR
+
+REM WebJobs on Net46 on DotNet Core Project System
+msbuild WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobDotNetCoreNetFx" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreNetFx /p:WebJobType=Continuous
+if errorlevel 1 GOTO ERROR
+
+:: =========== Functions ===============
+REM Function Apps.
+msbuild FunctionApp\FunctionApp.csproj /p:PackageLocation="..\PublishOutput\ZipFunctionApp" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:DesktopBuildPackageLocation="%RootPath%PublishOutput\ZipFunctionApp\FunctionApp.zip"
 if errorlevel 1 GOTO ERROR
 
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26521.1
+VisualStudioVersion = 15.0.26524.3005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsApp", "WebFormsApp\WebFormsApp.csproj", "{AA10DD0D-C0D2-4CA3-92CD-62357C5BABAC}"
 EndProject
@@ -47,6 +47,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{12543F29-B456-42B9-BFB2-68EC496682FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuGet", "tools\NuGet\NuGet.csproj", "{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobDotNetCorePortable", "WebJobDotNetCorePortable\WebJobDotNetCorePortable.csproj", "{E241533E-A32B-47B2-9824-CFDD58207BE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobDotNetCoreStandalone", "WebJobDotNetCoreStandalone\WebJobDotNetCoreStandalone.csproj", "{8AFDA77D-8987-4DD6-93CA-34E128A01A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJobDotNetCoreNetFx", "WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj", "{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +100,18 @@ Global
 		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E241533E-A32B-47B2-9824-CFDD58207BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E241533E-A32B-47B2-9824-CFDD58207BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E241533E-A32B-47B2-9824-CFDD58207BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E241533E-A32B-47B2-9824-CFDD58207BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AFDA77D-8987-4DD6-93CA-34E128A01A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AFDA77D-8987-4DD6-93CA-34E128A01A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AFDA77D-8987-4DD6-93CA-34E128A01A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AFDA77D-8987-4DD6-93CA-34E128A01A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
