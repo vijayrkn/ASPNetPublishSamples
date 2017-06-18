@@ -64,19 +64,19 @@ if errorlevel 1 GOTO ERROR
 
 :: =========== WebJobs ===============
 
-REM WebJobs On Net Fx on classic project system.
+REM WebJobs (Net Fx) on classic project system.
 msbuild WebJobFullFramework\WebJobFullFramework.csproj /p:PublishUrl="..\PublishOutput\WebJobFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs On DotNet Core 1.1 Portable
+REM WebJobs (DotNet Core) Portable
 msbuild WebJobDotNetCorePortable\WebJobDotNetCorePortable.csproj /p:PublishUrl="..\PublishOutput\WebJobDotNetCorePortable" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCorePortable /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs On DotNet Core 1.1 Standalone
+REM WebJobs (DotNet Core) Standalone
 msbuild WebJobDotNetCoreStandalone\WebJobDotNetCoreStandalone.csproj /p:PublishUrl="..\PublishOutput\WebJobDotNetCoreStandalone" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreStandalone /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs on Net46 on DotNet Core Project System
+REM WebJobs (Net46) on DotNetCore Project System
 msbuild WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj /p:PublishUrl="..\PublishOutput\WebJobDotNetCoreNetFx" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreNetFx /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
@@ -150,15 +150,15 @@ REM WebJobs On Net Fx.
 msbuild WebJobFullFramework\WebJobFullFramework.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs On DotNet Core 1.1 Portable
+REM WebJobs (DotNet Core) Portable
 msbuild WebJobDotNetCorePortable\WebJobDotNetCorePortable.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobDotNetCorePortable" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCorePortable /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs On DotNet Core 1.1 Standalone
+REM WebJobs (DotNet Core) Standalone
 msbuild WebJobDotNetCoreStandalone\WebJobDotNetCoreStandalone.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobDotNetCoreStandalone" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreStandalone /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
-REM WebJobs on Net46 on DotNet Core Project System
+REM WebJobs (Net46) on DotNetCore Project System
 msbuild WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobDotNetCoreNetFx" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="." /p:IsWebJobProject=true /p:WebJobName=WebJobDotNetCoreNetFx /p:WebJobType=Continuous
 if errorlevel 1 GOTO ERROR
 
