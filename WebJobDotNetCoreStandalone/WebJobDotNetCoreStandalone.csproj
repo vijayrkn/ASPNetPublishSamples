@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+	<IsWebJobProject>true</IsWebJobProject>
+	<WebJobName>$(MsBuildProjectName)</WebJobName>
+	<WebJobType>Continuous</WebJobType>
   </PropertyGroup>
 
   <ItemGroup>

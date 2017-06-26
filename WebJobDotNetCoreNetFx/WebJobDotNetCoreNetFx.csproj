@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net46</TargetFramework>
+	<IsWebJobProject>true</IsWebJobProject>
+	<WebJobName>$(MsBuildProjectName)</WebJobName>
+	<WebJobType>Continuous</WebJobType>
   </PropertyGroup>
 
   <ItemGroup>
