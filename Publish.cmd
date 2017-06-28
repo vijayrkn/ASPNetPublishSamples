@@ -62,6 +62,16 @@ REM ASP.NET Razor 3 Web Site.
 msbuild AspNetRazor3WebSite\website.publishproj /p:PublishUrl="..\PublishOutput\AspNetRazor3WebSite" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
+:: =========== WebApp with WebJob ===============
+
+REM WebApp With WebJob on classic project system.
+msbuild WebAppWithWebJob\WebAppWithWebJob.csproj /p:PublishUrl="..\PublishOutput\WebAppWithWebJob" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
+if errorlevel 1 GOTO ERROR
+
+REM WebApp With WebJob on classic project system.
+msbuild WebJobNetFx\WebJobNetFx.csproj /p:PublishUrl="..\PublishOutput\WebJobNetFx" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=FileSystem /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:SolutionDir="."
+if errorlevel 1 GOTO ERROR
+
 :: =========== WebJobs ===============
 
 REM WebJobs (Net Fx) on classic project system.
@@ -144,9 +154,19 @@ REM ASP.NET Razor 3 Web Site.
 msbuild AspNetRazor3WebSite\website.publishproj /p:PackageLocation="..\PublishOutput\ZipAspNetRazor3WebSite" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 
+:: =========== WebApp with WebJob ===============
+
+REM WebApp With WebJob On Full Framework.
+msbuild WebAppWithWebJob\WebAppWithWebJob.csproj /p:PackageLocation="..\PublishOutput\ZipWebAppWithWebJob" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
+if errorlevel 1 GOTO ERROR
+
+REM WebJob Included with WebApp on Full Framework
+msbuild WebJobNetFx\WebJobNetFx.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobNetFx" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
+if errorlevel 1 GOTO ERROR
+
 :: =========== WebJobs ===============
 
-REM WebJobs On Net Fx.
+REM WebJobs On Full Framework.
 msbuild WebJobFullFramework\WebJobFullFramework.csproj /p:PackageLocation="..\PublishOutput\ZipWebJobFullFramework" /p:DeployOnBuild=true /p:Configuration=Release /p:WebPublishMethod=Package /p:DeployTarget=WebPublish /p:AutoParameterizationWebConfigConnectionStrings=false /p:PackageAsSingleFile=true /p:DeployIisAppPath="Default Web Site" /p:SolutionDir="."
 if errorlevel 1 GOTO ERROR
 

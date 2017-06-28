@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26524.3005
+VisualStudioVersion = 15.0.26627.3005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsApp", "WebFormsApp\WebFormsApp.csproj", "{AA10DD0D-C0D2-4CA3-92CD-62357C5BABAC}"
 EndProject
@@ -52,7 +52,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobDotNetCorePortable", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobDotNetCoreStandalone", "WebJobDotNetCoreStandalone\WebJobDotNetCoreStandalone.csproj", "{8AFDA77D-8987-4DD6-93CA-34E128A01A96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJobDotNetCoreNetFx", "WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj", "{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobDotNetCoreNetFx", "WebJobDotNetCoreNetFx\WebJobDotNetCoreNetFx.csproj", "{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppWithWebJob", "WebAppWithWebJob\WebAppWithWebJob.csproj", "{953F7BE0-60AB-4788-8C2C-42738AA41CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJobNetFx", "WebJobNetFx\WebJobNetFx.csproj", "{8D22B3B7-66CC-487E-921B-6C29061CC261}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -112,11 +116,22 @@ Global
 		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49FAC461-FE80-4CB7-BD1F-94D9DF7FC06D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{953F7BE0-60AB-4788-8C2C-42738AA41CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{953F7BE0-60AB-4788-8C2C-42738AA41CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{953F7BE0-60AB-4788-8C2C-42738AA41CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{953F7BE0-60AB-4788-8C2C-42738AA41CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D22B3B7-66CC-487E-921B-6C29061CC261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D22B3B7-66CC-487E-921B-6C29061CC261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D22B3B7-66CC-487E-921B-6C29061CC261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D22B3B7-66CC-487E-921B-6C29061CC261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A91E6DBF-C8FD-4F7C-AA49-3C1B097E9A1B} = {663DB82C-408C-442F-8CE9-4BC859716D6F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2890C700-F4E4-47FA-9F9B-4E046480D9DD}
 	EndGlobalSection
 EndGlobal
